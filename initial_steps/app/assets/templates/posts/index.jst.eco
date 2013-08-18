@@ -1,5 +1,10 @@
 <h1>POSTS</h1>
 
+<form id='new_post'>
+	<input type="text" name='name' id='new_post_name'>
+	<input type="submit" value='Add'>
+</form>
+
 <ul>
 	<% for post in @posts.models: %>
 	  <li><%= post.get('title') %></li>
