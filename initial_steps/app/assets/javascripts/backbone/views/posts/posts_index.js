@@ -4,6 +4,7 @@ InitialSteps.Views.PostsIndex = Backbone.View.extend({
 
 	initialize: function(){
 		collection.on('reset', this.render, this);
+		collection.on('add', this.appendPost, this);
 	},
 
 	events: {
@@ -11,18 +12,22 @@ InitialSteps.Views.PostsIndex = Backbone.View.extend({
 	},
 
 
+
 	render: function() {
-    this.$el.html(this.template({
-      posts: collection
-    }));
-    return this;
-  },
+		this.$el.html(this.template());
+		collection.each(this.appendPost, this);
+		return this;
+	},
+
+	appendPost: function(post) {
+		view = new InitialSteps.Views.Post(model = post);
+		$('#posts').append(view.render().el);
+	},
 
 	createPost: function(e) {
-	  e.preventDefault();
-	  console.log(collection);
-
-	  collection.create({ title: $('#new_post_name').val() });
+		e.preventDefault();
+		collection.create({ title: $('#new_post_name').val() });
+	  $('#new_post')[0].reset();
 	}
 });
 
