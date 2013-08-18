@@ -10,16 +10,12 @@ window.InitialSteps = {
   Routers: {},
   Views: {},
   init: function() {
-  	console.log('----');
     new InitialSteps.Routers.Posts();
-  	console.log('--!!!--');
     Backbone.history.start();
-  	console.log('--+++--');
   }
 };
 
 $(document).ready(function() {
-	console.log('asdasd');
   InitialSteps.init();
 });
 	
