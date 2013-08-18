@@ -1,11 +1,11 @@
 InitialSteps.Collections.Posts = Backbone.Collection.extend({
 	url: '/posts',
+	model: InitialSteps.Models.Post,
 
 	drawWinner: function(){
 		winner = this.shuffle()[0]
 		if (winner) {
-			winner.set({in_stock: true})
-			winner.save()
+			winner.win();
 		}
 	}
 })
