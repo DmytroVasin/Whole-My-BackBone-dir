@@ -1,0 +1,1 @@
+class InitialSteps.Collections.Post extends Backbone.Collection

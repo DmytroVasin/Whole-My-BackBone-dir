@@ -1,0 +1,1 @@
+class InitialSteps.Models.Post extends Backbone.Model
