@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render :json => @posts.to_json }
+      format.json { render json: @posts.to_json }
     end
   end
 
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @post }
+        format.json { render json: @post.to_json }
       else
         format.html { render action: 'new' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -41,6 +41,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    @post = Post.find(params[:id])
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -65,6 +66,6 @@ class PostsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, :id, :in_stock, :created_at, :updated_at)
     end
 end

@@ -1,1 +1,3 @@
-InitialSteps.Models.Post = Backbone.Model.extend({})
+InitialSteps.Models.Post = Backbone.Model.extend({
+	
+})

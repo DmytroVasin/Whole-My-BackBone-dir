@@ -1,2 +1,4 @@
-<%= @title %>
-<%= @name %>
+<%= this.post.get('title') %>
+<% if this.post.get('in_stock'): %>
+	<b>WINNER</b>
+<% end %>

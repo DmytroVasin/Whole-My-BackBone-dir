@@ -8,7 +8,7 @@ InitialSteps.Routers.Posts = Backbone.Router.extend({
 		this.collection.fetch();
 	},
 	index: function() {
- 		view = new InitialSteps.Views.PostsIndex(collection = this.collection);
+ 		view = new InitialSteps.Views.PostsIndex({ collection: this.collection });
  		$('#container').html(view.render().el);
 	}
 });
